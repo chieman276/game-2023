@@ -55,7 +55,6 @@ function run() {
 
         if (ong[i].x == 180) {
             score++;
-
         }
         // điều kiện khi thua
         if (bird.y < 0 || bird.y > 500 || //khi chiều cao của vật chạm vào canvas sẽ thua
@@ -76,7 +75,7 @@ function run() {
 }
 //thêm function để nó bay lên khi nhấn
 document.addEventListener("keydown", function () {
-    bird.y -= 60;
+    bird.y -= 90;
 })
 
 run();
