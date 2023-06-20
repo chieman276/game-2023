@@ -1,0 +1,301 @@
+Skip to content
+Search or jump to…
+Pull requests
+Issues
+Codespaces
+Marketplace
+Explore
+
+@chieman276
+chieman276
+/
+formJquery
+Public
+Cannot fork because you own this repository and are not a member of any
+organizations.
+Code
+Issues
+Pull requests
+Actions
+Projects
+Wiki
+Security
+Insights
+Settings
+formJquery/Form/form.html
+@chieman276
+chieman276 update Ajax
+Latest commit 40ebc30 on Jun 6, 2022
+History
+1 contributor
+236 lines (201 sloc) 8.84 KB
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script
+            src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="css/cmxform.css">
+        <link rel="stylesheet" href="css/cmxformTemplate.css">
+
+    </head>
+
+    <body>
+        <div>
+            <h1> Jquery Validation</h1>
+        </div>
+        <form class="cmxform" id="signupForm" method="get" action=""
+            novalidate="novalidate">
+            <fieldset style="width:650px">
+                <legend>Validating a complete form</legend>
+                <p>
+                    <label for="firstname">Firstname</label>
+                    <input id="firstname" name="firstname" type="text">
+                    <label id="firstname-error" class="error" for="firstname"
+                        style="display: none;">Please enter your
+                        firstname</label>
+                </p>
+                <p>
+                    <label for="lastname">Lastname</label>
+                    <input id="lastname" name="lastname" type="text">
+                    <label id="lastname-error" class="error" for="lastname"
+                        style="display: none;">Please enter your
+                        lastname</label>
+                </p>
+                <p>
+                    <label for="username">Username</label>
+                    <input id="username" name="username" type="text">
+                    <label id="username-error" class="error" for="lastname"
+                        style="display: none;">Please enter your
+                        username</label>
+                </p>
+                <p>
+                    <label for="password">Password</label>
+                    <input id="password" name="password" type="password">
+                    <label id="password-error" class="error" for="lastname"
+                        style="display: none;">Please enter your
+                        password</label>
+                </p>
+                <p>
+                    <label for="confirm_password">Confirm password</label>
+                    <input id="confirm_password" name="confirm_password"
+                        type="password">
+                    <label id="confirm_password-error" class="error"
+                        for="lastname" style="display: none;">Please enter your
+                        confirm_password</label>
+                </p>
+                <p>
+                    <label for="email">Email</label>
+                    <input id="email" name="email" type="email">
+                    <label id="email-error" class="error" for="lastname"
+                        style="display: none;">Please enter your
+                        email</label>
+                </p>
+                <p>
+                    <label for="agree">Please agree to our policy</label>
+                    <input type="checkbox" class="checkbox" id="agree"
+                        name="agree">
+                    <label id="agree-error" class="error" for="lastname"
+                        style="display: none;">Please enter your
+                        agree</label>
+                </p>
+                <p>
+                    <label for="newsletter">I'd like to receive the newsletter</label>
+                    <input type="checkbox" class="checkbox" id="newsletter"
+                        name="newsletter">
+                    <label id="newsletter-error" class="error" for="lastname"
+                        style="display: none;">Please enter your
+                        newsletter</label>
+                </p>
+                <fieldset id="newsletter_topics" class="gray">
+                    <legend>Topics (select at least two) - note: would be hidden
+                        when newsletter isn't selected, but is
+                        visible here for the demo</legend>
+                    <label for="topic_marketflash">
+                        <input type="checkbox" id="topic_marketflash"
+                            value="marketflash" name="topic"
+                            disabled="disabled">Marketflash
+                    </label>
+                    <label for="topic_fuzz">
+                        <input type="checkbox" id="topic_fuzz" value="fuzz"
+                            name="topic" disabled="disabled">Latest fuzz
+                    </label>
+                    <label for="topic_digester">
+                        <input type="checkbox" id="topic_digester"
+                            value="digester" name="topic" disabled="disabled">Mailing
+                        list digester
+                    </label>
+                    <label for="topic" class="error" id="topic-error"
+                        style="display: none;">Please select at least 2
+                        topics</label>
+                </fieldset>
+                <p>
+                    <input class="submit" type="button" value="Submit">
+                </p>
+            </fieldset>
+        </form>
+
+
+        <script>
+        $(document).ready(function () {
+            $('.submit').click(function () {
+                var can_submit = true;
+
+                var firstname = $('#firstname').val();
+                if (firstname == '') {
+                    $('#firstname-error').show();
+                    can_submit = false;
+                } else {
+                    $('#firstname-error').hide();
+
+                }
+                var lastname = $('#lastname').val();
+                if (lastname == '') {
+                    $('#lastname-error').show();
+                    can_submit = false;
+
+                } else {
+                    $('#lastname-error').hide();
+
+                }
+                var lastname = $('#lastname').val();
+                if (lastname == '') {
+                    $('#lastname-error').show();
+                    can_submit = false;
+
+                } else {
+                    $('#lastname-error').hide();
+
+                }
+                var username = $('#username').val();
+                if (username == '') {
+                    $('#username-error').show();
+                    can_submit = false;
+
+                } else {
+                    $('#username-error').hide();
+
+                }
+                var password = $('#password').val();
+                if (password == '') {
+                    $('#password-error').show();
+                    can_submit = false;
+
+                } else {
+                    $('#password-error').hide();
+
+                }
+                var confirm_password = $('#confirm_password').val();
+                if (confirm_password == '') {
+                    $('#confirm_password-error').show();
+                    can_submit = false;
+
+                } else {
+                    $('#confirm_password-error').hide();
+
+                }
+
+                var email = $('#email').val();
+                if (email == '') {
+                    $('#email-error').show();
+                    can_submit = false;
+
+                } else {
+                    $('#email-error').hide();
+
+                }
+
+                var agree = $('#agree').is(':checked');
+                if (agree == '') {
+                    $('#agree-error').show();
+                    can_submit = false;
+
+                }
+
+                var agree = $('#agree').val();
+                if (agree == '') {
+                    $('#agree-error').show();
+                    can_submit = false;
+
+                }
+
+                if ($('#newsletter').is(':checked')) {
+                    var topicChecked = $('[name="topic"]:checked').length;
+                    if (topicChecked < 2) {
+                        $('#topic-error').show();
+                        can_submit = false;
+                    } else if (topicChecked == 2) {
+                        $('#topic-error').hide();
+
+                    }
+
+                }
+
+                if (can_submit == true) {
+                    $.ajax({
+                        url: "xuly.php",
+                        type: "POST",
+                        data: {
+                            "firstname": firstname,
+                            "lastname": lastname,
+                            "username": username,
+                            "password": password,
+                            "confirm_password": confirm_password,
+                            "email": email,
+                            "agree": $('#agree').is(':checked'),
+                            "newsletter": $('#newsletter').is(':checked'),
+                            "topic_fuzz": $('#topic_fuzz').is(':checked'),
+                            "topic_digester": $('#topic_digester').is(':checked'),
+                            "topic-error": $('#topic-error').is(':checked'),
+
+
+                        },
+                        global: true,//default: true
+                        success: function (data) {
+                            $("#info").html(data);
+                        }
+                    });
+
+                }
+
+            })
+            $('#newsletter').change(function () {
+                var check = $(this).is(':checked');
+                if (check == true) {
+                    $('[name="topic"]').prop('disabled', false);
+                    $('#newsletter_topics').removeClass('gray')
+
+                } else {
+                    $('[name="topic"]').prop('disabled', true);
+                    $('#newsletter_topics').addClass('gray')
+
+                }
+            })
+            $('#agree').on('change', function () {
+                $('#agree-error').hide();
+            })
+        });
+    </script>
+    </body>
+
+</html>
+Footer
+© 2023 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
+formJquery/form.html at main · chieman276/formJquery

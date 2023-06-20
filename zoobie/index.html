@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Bắn súng zombie</title>
+  <style>
+    body {
+      background-color: #f0f0f0;
+    }
+    #game-container {
+      position: relative;
+      width: 800px;
+      height: 600px;
+      margin: 0 auto;
+      background-color: #ffffff;
+      border: 1px solid #ccc;
+    }
+    .character {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      background-color: #ff0000;
+    }
+    .bullet {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: #000000;
+    }
+    .zombie {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      background-color: #00ff00;
+    }
+  </style>
+</head>
+<body>
+  <div id="game-container">
+    <div id="character" class="character"></div>
+    <div id="zombie" class="zombie"></div>
+    <div id="bullet" class="bullet"></div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>

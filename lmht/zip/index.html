@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Giao diện tướng Zip</title>
+    <style>
+        /* CSS cho giao diện */
+        .container {
+            width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8f8f8;
+            text-align: center;
+            position: relative; /* Cần thiết để định vị tuyệt đối cho avatar */
+        }
+
+        .avatar {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+            transition: transform 0.2s;
+            position: absolute; /* Định vị tuyệt đối */
+            top: 0; /* Định vị ban đầu */
+            left: 0; /* Định vị ban đầu */
+        }
+
+        .info {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .control {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img class="avatar" src="zip_avatar.jpg" alt="Avatar">
+        <div class="info">
+            <p>Tên: Zip</p>
+            <p>Vai trò: Xạ thủ</p>
+        </div>
+        <div class="control">
+            <p>Di chuyển:</p>
+            <p>Sử dụng các phím mũi tên</p>
+        </div>
+        <div class="footer">
+            <p>Liên Quân Mobile - Giao diện tướng Zip</p>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript để bắt sự kiện bàn phím và di chuyển hình ảnh
+        var avatar = document.querySelector('.avatar');
+        var step = 10; // Khoảng cách di chuyển
+
+        document.addEventListener("keydown", function(event) {
+            var key = event.key;
+            var x = parseInt(avatar.style.left) || 0;
+            var y = parseInt(avatar.style.top) || 0;
+
+            switch (key) {
+                case "ArrowUp":
+                    y -= step;
+                    break;
+                case "ArrowDown":
+                    y += step;
+                    break;
+                case "ArrowLeft":
+                    x -= step;
+                    break;
+                case "ArrowRight":
+                    x += step;
+                    break;
+                default:
+                    break;
+            }
+
+            // Giới hạn di chuyển trong khu vực container
+            var container = document.querySelector('.container');
+            var containerRect = container.getBoundingClientRect();
+            var avatarRect = avatar.getBoundingClientRect();
+
+            if (x >= containerRect.left && x + avatarRect.width <= containerRect.right) {
+                avatar.style.left = x + "px";
+            }
+
+            if (y >= containerRect.top && y + avatarRect.height <= containerRect.bottom) {
+                avatar.style.top = y + "px";
+            }
+        });
+    </script>
+</body>
+</html>

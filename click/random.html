@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+    <script
+        src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <style>
+        #random-button{
+            position: absolute;right: 53%;padding: 15px;margin-top: 25.53em;
+        }
+        .img1, .img2,.img3,.img4,.img5{
+            position: absolute;right: 53%;padding: 15px;margin-top: 25.53em;
+        }
+    </style>
+    <head>
+        <title>Hiển thị phần tử ngẫu nhiên trong mảng</title>
+    </head>
+    <body>
+        <button id="random-button"><img id="theimage"
+                style="width: 320px; height: 320px;" data-linkurl="#page2"
+                src="https://media.istockphoto.com/id/106571641/vi/anh/ki%E1%BA%BFm-th%E1%BA%ADp-t%E1%BB%B1-ki%E1%BA%BFm.jpg?s=1024x1024&w=is&k=20&c=7Aoox8uQuEnMwRXrhD4mpypzzZcEW8bOzyDZYxEts28="
+                alt />
+        </button>
+        <p id="result"></p>
+        <img class="img1" src="img1.png" alt>
+        <img class="img2" src="img2.png" alt>
+        <img class="img3" src="img3.png" alt>
+        <img class="img4" src="img4.png" alt>
+        <img class="img5" src="img5.png" alt>
+
+        <script>
+		$(document).ready(function() {
+            $('.img1').hide();
+            $('.img2').hide();
+            $('.img3').hide();
+            $('.img4').hide();
+            $('.img5').hide();
+        // Khai báo mảng số
+        var numbers = [1, 2, 3, 4, 5];
+
+        // Lắng nghe sự kiện click trên nút
+        $("#random-button").click(function() {
+            $('.img1').hide();
+            $('.img2').hide();
+            $('.img3').hide();
+            $('.img4').hide();
+            $('.img5').hide();
+           // Chọn ngẫu nhiên một số trong mảng
+           var randomNum = numbers[Math.floor(Math.random()*numbers.length)];
+            if(randomNum == 1){
+                $('.img1').show();
+            }
+            if(randomNum == 2){
+                $('.img2').show();
+            }
+            if(randomNum == 3){
+                $('.img3').show();
+            }
+            if(randomNum == 4){
+                $('.img4').show();
+            }
+            if(randomNum == 5){
+                $('.img5').show();
+            }
+        });
+        });
+	</script>
+    </body>
+</html>
+
+<style>
+    .image {
+        overflow: hidden;
+        transition-duration: 6.1118s;
+        transition-property: transform;
+    }
+    .image:active {
+        -webkit-transform: rotate(72000deg);
+    }
+    .imageRot {
+   -webkit-animation:spin 10.6s ease-in-out;
+    -moz-animation:spin 10.6s ease-in-out;
+    animation:spin 10.6s ease-in-out;
+    }
+    @-moz-keyframes spin {
+        100% { -webkit-transform: rotate(72000deg); transform:rotate(72000deg); }
+    }
+    @-webkit-keyframes spin {
+        100% { -webkit-transform: rotate(72000deg); transform:rotate(72000deg); }
+    }
+    @keyframes spin { 
+        100% { -webkit-transform: rotate(72000deg); transform:rotate(72000deg); } 
+    }
+</style>
+<script>
+   $("#random-button").on("click", function(){       
+    $(this).addClass("imageRot").one('webkitAnimationEnd mozAnimationEnd oAnimationEnd msAnimationEnd animationend', function () {
+        $(this).removeClass("imageRot"); //remove anim class
+        var url = $(this).data('linkurl'); //get url from data-attribute
+        $( ":mobile-pagecontainer" ).pagecontainer( "change", url); //navigate to page      
+    });
+});
+  </script>

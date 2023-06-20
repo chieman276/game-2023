@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>Jquery rotate image animation example - ItSolutionStuff.com</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+    
+<img src="https://i0.wp.com/thatnhucuocsong.com.vn/wp-content/uploads/2022/02/anh-gay-ao-giac.jpg?ssl=1">
+<!-- https://i0.wp.com/thatnhucuocsong.com.vn/wp-content/uploads/2022/02/anh-gay-ao-giac.jpg?ssl=1 -->
+<!-- https://e7.pngegg.com/pngimages/112/893/png-clipart-pinwheel-miscellaneous-spiral-thumbnail.png -->
+<button>Rotate image</button>
+    
+<script type="text/javascript">
+  var tmpAnimation = 0;
+  $("button").click(function(){
+    var element = $("img");
+    tmpAnimation = tmpAnimation + 9000;
+
+    $({degrees: tmpAnimation - 9000}).animate({degrees: tmpAnimation}, {
+        duration: 12000,
+        step: function(now) {
+            element.css({
+                transform: 'rotate(' + now + 'deg)'
+            });
+        }
+    });
+  });
+</script>
+    
+</body>
+</html>
